@@ -6,6 +6,7 @@ public class Main
 		// Submeter algumas tarefas
 		for (int i = 1; i <= 20; i++) {
 			TaskManager.submitTask(new Task(i));
+
 		}
 
 		// Esperar um pouco e então fazer shutdown
