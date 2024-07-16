@@ -12,7 +12,7 @@ public class Main
 		Thread thread0 = new Thread(()-> {
 			try
 			{
-				Thread.sleep(10);
+				Thread.sleep(5000);
 			}
 			catch (InterruptedException e)
 			{
@@ -34,6 +34,9 @@ public class Main
 		// Inicializa threads
 		thread0.start();
 		thread1.start();
+		thread2.start();
+
+		System.out.println("Teste");
 
 	}
 	private static void printThreadName(Thread thread) {
