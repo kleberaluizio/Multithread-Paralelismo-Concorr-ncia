@@ -23,33 +23,20 @@ public class Synchronized_1
 		System.out.println(i);
 	}
 
+	public static void printThreadName()
+	{
+		synchronized(Synchronized_1.class){ // Apenas uma thread na minha JVM poderá acessar esses recursos. O bloqueio acontece na classe.
+			i++;
+			String name = Thread.currentThread().getName();
+			System.out.println(name + ": " + i);
+		}
+	}
 	public static class MyRunnable implements Runnable {
-//		@Override
-//		public synchronized void run()
-//		{
-//			i++;
-//			String name = Thread.currentThread().getName();
-//			System.out.println(name + ": " + i);
-//		}
 
-		static Object lock0 = new Object();
-		static Object lock1 = new Object();
 		@Override
 		public void run()
 		{
-			synchronized (lock0)
-			{
-				i++;
-				String name = Thread.currentThread().getName();
-				System.out.println(name + ": " + i);
-			}
-
-			synchronized (lock1)
-			{
-				i++;
-				String name = Thread.currentThread().getName();
-				System.out.println(name + ": " + i);
-			}
+			printThreadName();
 		}
 	}
 }
