@@ -1,3 +1,5 @@
+package volatile_and_yield;
+
 public class Volatile
 {
 	private static int number = 0;
