@@ -2,8 +2,8 @@ package volatile_and_yield;
 
 public class Volatile2
 {
-	private static int number = 0;
-	private static boolean ready = false;
+	private static volatile int number = 0;
+	private static volatile boolean ready = false;
 
 	public static class MainRunnable implements Runnable {
 
@@ -15,9 +15,8 @@ public class Volatile2
 			}
 
 			if(number != 42) {
-				System.out.println("Number is different from 42");
+				System.out.println(number);
 			}
-			System.out.println(number);
 		}
 	}
 
@@ -30,6 +29,7 @@ public class Volatile2
 			t1.start();
 			Thread t2 = new Thread(new MainRunnable());
 			t2.start();
+
 			number = 42;
 			ready = true;
 
